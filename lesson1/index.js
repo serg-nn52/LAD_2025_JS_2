@@ -117,3 +117,4 @@ console.log(typeof console.log); //function - но это объект
 
 console.log(typeof(null + 'test'), null + 'test');
 console.log(typeof null + 'test', null + 'test');
+//
