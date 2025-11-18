@@ -1,30 +1,30 @@
-const arr = ["apple", 1, null, { name: "Sergey" }, []];
-console.log(typeof arr);
-console.log(Array.isArray(arr));
+// const arr = ["apple", 1, null, { name: "Sergey" }, []];
+// console.log(typeof arr);
+// console.log(Array.isArray(arr));
 
-const arr1 = new Array();
-const arr2 = [];
+// const arr1 = new Array();
+// const arr2 = [];
 
 // console.log(arr1);
 // console.log(arr2);
-arr[0] = "banana";
+// arr[0] = "banana";
 
-arr.push("cherry");
+// arr.push("cherry");
 
-console.log(arr.length, arr);
-console.log(arr[3].name);
+// console.log(arr.length, arr);
+// console.log(arr[3].name);
 
-const matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-];
+// const matrix = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9],
+// ];
 
-console.log(matrix[1][1]);
+// console.log(matrix[1][1]);
 
 //arr.length = 2;
-console.log(arr.toString());
-console.log(String(arr));
+// console.log(arr.toString());
+// console.log(String(arr));
 
 //методы
 
@@ -53,24 +53,24 @@ console.log(String(arr));
 // console.log(arr.indexOf(null));
 // console.log(arr.includes("banana"));
 
-const userList = [
-    {
-        id: 1,
-        user: "Ivan",
-    },
-    {
-        id: 2,
-        user: "Sergey",
-    },
-    {
-        id: 3,
-        user: "Lina",
-    },
-    {
-        id: 4,
-        user: "Sergey",
-    },
-];
+// const userList = [
+//     {
+//         id: 1,
+//         user: "Ivan",
+//     },
+//     {
+//         id: 2,
+//         user: "Sergey",
+//     },
+//     {
+//         id: 3,
+//         user: "Lina",
+//     },
+//     {
+//         id: 4,
+//         user: "Sergey",
+//     },
+// ];
 
 //console.log(userList.find((el) => el.user === "Sergey"));
 
@@ -140,18 +140,18 @@ const userList = [
 
 // console.log(myFunc([1, 2, 3, 2, 4, 4, 5, 6, 8], [1, 2, 3, 2, 4, 4, 5, 6]));
 
-const user1 = {
-    name: "Sergey",
-    car: "BMW",
-    age: "35",
-    dog: {
-        name: "Sharik",
-    },
-};
+// const user1 = {
+//     name: "Sergey",
+//     car: "BMW",
+//     age: "35",
+//     dog: {
+//         name: "Sharik",
+//     },
+// };
 
-for (let elem in user1) {
-    console.log(elem);
-}
+// for (let elem in user1) {
+//     console.log(elem);
+// }
 
 // const user3 = {
 //     name: "Ivan",
@@ -194,3 +194,35 @@ for (let elem in user1) {
 // for (let num of nums) {
 //     console.log(num * 10);
 // }
+function timer(startSeconds, endSeconds) {
+    let currentTime = startSeconds;
+
+    return () => {
+        const showTime = () => {
+            const minutes = Math.floor(currentTime / 60);
+            const seconds = currentTime % 60;
+            // Форматируем в вид MM:SS
+            const formattedTime = `${minutes.toString().padStart(2, "0")}:${seconds
+                .toString()
+                .padStart(2, "0")}`;
+
+            console.log(formattedTime);
+
+            currentTime--; // Уменьшаем время на 1 секунду
+        };
+
+        showTime();
+
+        const timerID = setInterval(() => {
+            showTime();
+            if (currentTime < endSeconds) {
+                console.log("Таймер закончил работу");
+                clearInterval(timerID);
+            }
+        }, 1000);
+    };
+}
+
+// // Правильное использование:
+const myTimer = timer(3, 0);
+myTimer(); // Запускаем таймер
