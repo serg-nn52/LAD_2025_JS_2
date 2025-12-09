@@ -213,3 +213,9 @@ const fetchPosts = async () => {
 };
 
 fetchPosts();
+
+const array = [1, 2, 3, 4, 5];
+// localStorage.setItem("testArray", JSON.stringify(array));
+array.forEach((el, i) => {
+    localStorage.setItem(`key-${i}`, el);
+});
